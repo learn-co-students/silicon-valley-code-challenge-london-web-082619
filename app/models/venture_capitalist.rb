@@ -31,13 +31,19 @@ class VentureCapitalist
         funding_rounds.map { |a| a.startup }.uniq
     end
 
+    def startups
+        funding_rounds.map { | a | a.startup}
+    end
+
+
     def biggest_investment
         portfolio.max_by { | a | a.investment }
     end
 
     def invested(domain)
-        @inv1 = funding_rounds.map { | a | a.startup }
-            # .select { |b| b.domain == domain}.sum
+        startups2 = startups.select {|startup| startup.domain == domain}
+        startups2.sum {|startup| startup.total_funds}
     end
+
 
 end
