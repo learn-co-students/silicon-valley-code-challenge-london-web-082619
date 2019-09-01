@@ -1,8 +1,6 @@
-require_relative '../config/environment.rb'
-
-def reload
-  load 'config/environment.rb'
-end
+require_relative 'app/models/startup.rb'
+require_relative 'app/models/funding_round.rb'
+require_relative 'app/models/venture_capitalist.rb'
 
 apple = Startup.new("Apple", "Steve Jobbs", "software")
 google = Startup.new("Google", "Larry Page", "google.com")
@@ -31,5 +29,28 @@ i = FundingRound.new(apple, derek, "D", 2987000000.0)
 j = FundingRound.new(amazon, peter, "C", 8000000.0)
 k = FundingRound.new(facebook, harry, "B", 7000000.0)
 
-binding.pry
-0 #leave this here to ensure binding.pry isn't the last line
+# p apple
+# p google
+# p facebook
+
+ p Startup.find_by_founder("Larry Page")
+# p google.pivot("abc.com", "Sergei")
+# p Startup.domains
+# p VentureCapitalist.tres_commas_club
+
+# p a 
+# p b  
+# p c
+
+# p google.num_funding_rounds
+# p google.total_funds
+# p google.investors
+# p google.big_investors
+
+# p peter.funding_rounds
+# p peter.portfolio
+# p peter.biggest_investment
+p peter.invested("ecommerce")
+
+
+
